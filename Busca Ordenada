@@ -1,7 +1,7 @@
 from collections import defaultdict
 from heapq import *
 
-
+#definindo a busca
 def dijkstra(edges, f, t):
     g = defaultdict(list)
     for l, r, c in edges:
@@ -27,7 +27,7 @@ def dijkstra(edges, f, t):
 
     return (float("inf"), [])
 
-
+#defininfo o grafo de busca
 if __name__ == "__main__":
     edges = [
         ("A", "B", 7),
