@@ -1,0 +1,48 @@
+# Programa Python3 para imprimir Busca Gulosa
+from collections import defaultdict
+ 
+# Esta classe representa um grafo direcionado
+class Graph:
+    def __init__(self):
+ 
+        #armazenando grafo
+        self.graph = defaultdict(list)
+ 
+    #adicionando aresta
+    def addEdge(self,u,v):
+        self.graph[u].append(v)
+ 
+    #função para imprimir
+    def BFS(self, s):
+ 
+        # Marca todos os vértices como não visitados
+        visited = [False] * (max(self.graph) + 1)
+ 
+        #Cria uma fila
+        queue = []
+ 
+        # Marca o nó de origem como visitado e enfileira
+        queue.append(s)
+        visited[s] = True
+ 
+        while queue:
+ 
+           # Retira um vértice da fila e imprime-o
+            s = queue.pop(0)
+            print (s, end = " ")
+ 
+            for i in self.graph[s]:
+                if visited[i] == False:
+                    queue.append(i)
+                    visited[i] = True
+ 
+g = Graph()
+g.addEdge(0, 1)
+g.addEdge(0, 2)
+g.addEdge(1, 2)
+g.addEdge(2, 0)
+g.addEdge(2, 3)
+g.addEdge(3, 3)
+ 
+print ("A Busca Gulosa do problema do nó é")
+g.BFS(0)
